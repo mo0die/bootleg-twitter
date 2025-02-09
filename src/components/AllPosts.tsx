@@ -15,6 +15,7 @@ export default function AllPosts() {
             content={post?.content}
             disableDelete={true}
             id={post?.id}
+            createdAt={post?.createdAt.toLocaleDateString()}
           />
         ))}
       </div>

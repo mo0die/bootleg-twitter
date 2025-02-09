@@ -14,6 +14,7 @@ export default function Postitems() {
           content={post?.content}
           disableDelete={false}
           id={post?.id}
+          createdAt={post?.createdAt.toLocaleDateString()}
         />
       ))}
     </div>

@@ -3,12 +3,10 @@ import { Button } from "../ui/button";
 import { api } from "@/trpc/react";
 interface PostcardProps {
   username: string;
-
   content: string;
-
   id: string;
-
   disableDelete?: boolean;
+  createdAt: string;
 }
 
 export default function Postcard({
@@ -16,6 +14,7 @@ export default function Postcard({
   content,
   disableDelete,
   id,
+  createdAt,
 }: PostcardProps) {
   const utils = api.useUtils();
   const deleteTweet = api.tweets.delete.useMutation({
@@ -33,8 +32,9 @@ export default function Postcard({
   };
   return (
     <Card className="w-full rounded-none border-2 border-black">
-      <CardHeader>
+      <CardHeader className="flex flex-row items-center justify-between">
         <CardTitle>{username}</CardTitle>
+        <p className="text-sm text-muted-foreground">{createdAt}</p>
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
         <p>{content}</p>
