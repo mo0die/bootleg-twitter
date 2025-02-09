@@ -3,8 +3,7 @@ import Postcard from "@/components/blocks/PostCard";
 import { api } from "@/trpc/react";
 
 export default function Postitems() {
-  const [userTweet, isLoading] =
-    api.tweets.getUserTweets.useSuspenseQuery() ?? [];
+  const [userTweet] = api.tweets.getUserTweets.useSuspenseQuery() ?? [];
   return (
     <div className="grid grid-cols-1 gap-4">
       {userTweet?.map((post) => (

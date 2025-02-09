@@ -1,10 +1,6 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import Link from "next/link";
-import { api } from "@/trpc/server";
 import { auth } from "@/server/auth";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { redirect } from "next/navigation";
 
 export default async function Login() {
   const session = await auth();

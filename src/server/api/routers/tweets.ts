@@ -25,12 +25,25 @@ export const tweetRouter = createTRPCRouter({
             })
         }),
     
-    getAllTweets: publicProcedure.query(async ({ctx}) => {
-        const AllTweet = await ctx.db.query.tweets.findMany({
-            orderBy: (tweets, {desc}) => [desc(tweets.createdAt)],
-        })
-        return AllTweet ?? [];
-    }),
+        getAllTweets: publicProcedure.query(async ({ ctx }) => {
+            try{
+                return await ctx.db.select(
+                  {
+                        id: tweets.id,
+                        text: tweets.text,
+                        description: tweets.description,
+                        content: tweets.content,
+                        footer: tweets.footer,
+                        createdAt: tweets.createdAt,
+                        updatedAt: tweets.updatedAt,
+                        userId: tweets.userId,
+                        username: tweets.username
+                    }).from(tweets).orderBy(desc(tweets.createdAt))
+                
+            } catch (error) {
+                console.error(error);
+            }
+        }),
 
     getUserTweets: protectedProcedure.query(async ({ctx}) => {
         try{

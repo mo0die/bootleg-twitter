@@ -1,4 +1,4 @@
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react";
+import { Home, Settings } from "lucide-react";
 import { auth } from "@/server/auth";
 import {
   DropdownMenu,
@@ -21,7 +21,6 @@ import {
 import Link from "next/link";
 import { api } from "@/trpc/server";
 import { Button } from "./ui/button";
-import { redirect } from "next/navigation";
 
 const LoggedInItems = [
   {

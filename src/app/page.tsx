@@ -1,9 +1,6 @@
-import { auth } from "@/server/auth";
-import { api, HydrateClient } from "@/trpc/server";
-import { redirect } from "next/navigation";
 import AllPosts from "@/components/AllPosts";
 import { SidebarInset } from "@/components/ui/sidebar";
-import { CreatePostForm } from "@/components/CreatePostForm";
+import { HydrateClient } from "@/trpc/server";
 
 export default async function Dashboard() {
   return (
