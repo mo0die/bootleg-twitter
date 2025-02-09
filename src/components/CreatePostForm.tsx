@@ -50,7 +50,6 @@ export function CreatePostForm() {
   });
 
   function onSubmit(values: FormData) {
-    console.log(values);
     createTweet.mutate({
       content: values.content,
     });

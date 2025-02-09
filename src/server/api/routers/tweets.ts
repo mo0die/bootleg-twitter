@@ -41,6 +41,7 @@ export const tweetRouter = createTRPCRouter({
                     }).from(tweets).orderBy(desc(tweets.createdAt))
                 
             } catch (error) {
+
                 console.error(error);
             }
         }),
