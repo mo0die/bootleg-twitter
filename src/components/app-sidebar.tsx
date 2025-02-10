@@ -21,7 +21,7 @@ import {
 import Link from "next/link";
 import { api } from "@/trpc/server";
 import { Button } from "./ui/button";
-
+import ModeToggle from "./MoodPicker";
 const LoggedInItems = [
   {
     title: "Home",
@@ -54,16 +54,19 @@ export async function AppSidebar() {
   const menuItems = session?.user ? LoggedInItems : LoggedOutItems;
 
   return (
-    <Sidebar className="outline">
-      <SidebarContent>
+    <Sidebar className="outline dark:outline-none">
+      <SidebarContent className="dark:bg-black">
         <SidebarGroup>
-          <SidebarGroupLabel className="text-xl font-bold uppercase text-black">
+          <SidebarGroupLabel className="text-xl font-bold uppercase text-black dark:text-white">
             BASSEM THOUGHTS
           </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu className="">
               {menuItems.map((item) => (
-                <SidebarMenuItem className="mt-2 outline" key={item.title}>
+                <SidebarMenuItem
+                  className="mt-2 outline dark:outline-none"
+                  key={item.title}
+                >
                   <SidebarMenuButton asChild>
                     <Link href={item.url}>
                       <item.icon />
@@ -77,16 +80,18 @@ export async function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
       {session?.user && (
-        <SidebarFooter>
+        <SidebarFooter className="dark:bg-black">
           <SidebarMenu>
-            <SidebarMenuItem className="outline">
+            <SidebarMenuItem className="outline dark:outline-none">
               <DropdownMenu>
                 <DropdownMenuTrigger
                   asChild
                   className="font-bold uppercase text-black"
                 >
                   <SidebarMenuButton>
-                    <span>Account</span>
+                    <span className="dark:text-white dark:outline-none">
+                      Account
+                    </span>
                   </SidebarMenuButton>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent
@@ -94,9 +99,12 @@ export async function AppSidebar() {
                   className="w-[--radix-popper-anchor-width]"
                 >
                   <DropdownMenuItem>
-                    <Button className="w-full">
+                    <Button className="w-full dark:bg-black dark:text-white">
                       <Link href="/api/auth/signout">Sign out</Link>
                     </Button>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <ModeToggle />
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>

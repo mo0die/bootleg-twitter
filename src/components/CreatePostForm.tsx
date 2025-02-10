@@ -56,7 +56,7 @@ export function CreatePostForm() {
   }
 
   return (
-    <Card className="w-full rounded-none border-2 border-black">
+    <Card className="w-full rounded-none border-2 border-black dark:bg-black dark:outline-none">
       <CardHeader>
         <CardTitle>Create New Post</CardTitle>
         <CardDescription>Fill in the details for your new post</CardDescription>
@@ -83,7 +83,10 @@ export function CreatePostForm() {
             />
           </CardContent>
           <CardFooter className="flex justify-end">
-            <Button type="submit" className="rounded-none border border-black">
+            <Button
+              type="submit"
+              className="rounded-none border border-black dark:border-none dark:bg-black dark:text-white"
+            >
               Create Post
             </Button>
           </CardFooter>

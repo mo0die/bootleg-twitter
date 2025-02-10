@@ -31,7 +31,7 @@ export default function Postcard({
     deleteTweet.mutate({ id });
   };
   return (
-    <Card className="w-full rounded-none border-2 border-black">
+    <Card className="w-full rounded-none border-2 border-black dark:bg-black dark:outline-none">
       <CardHeader className="flex flex-row items-center justify-between">
         <CardTitle>{username}</CardTitle>
         <p className="text-sm text-muted-foreground">{createdAt}</p>
@@ -39,8 +39,13 @@ export default function Postcard({
       <CardContent className="flex flex-col gap-4">
         <p>{content}</p>
         {disableDelete == false && (
-          <div className="mt-auto flex justify-end">
-            <Button onClick={() => handleDeleteTweet(id)}>Delete</Button>
+          <div className="mt-auto flex justify-end text-left">
+            <Button
+              className="dark:bg-black dark:text-left dark:text-white"
+              onClick={() => handleDeleteTweet(id)}
+            >
+              Delete
+            </Button>
           </div>
         )}
       </CardContent>

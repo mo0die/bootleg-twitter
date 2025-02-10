@@ -9,7 +9,7 @@ export default async function Profile() {
     redirect("/");
   }
   return (
-    <SidebarInset className="mr-5 p-6">
+    <SidebarInset className="mr-5 p-6 dark:bg-black">
       <div className="max-w flex h-[calc(100vh-3rem)] flex-col">
         <div className="flex-none">
           <CreatePostForm />
